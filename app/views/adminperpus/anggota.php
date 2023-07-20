@@ -36,14 +36,14 @@
                                         <tr>
                                             <td><?= $no++; ?></td>
                                             <td><?= $anggota['nama_anggota']; ?></td>
-                                            <td><?= $anggota['id_kelas']; ?></td>
+                                            <td><?= $anggota['nama_kelas'] . $anggota['abjad']; ?></td>
                                             <td><?= $anggota['jenis_kelamin']; ?></td>
                                             <td><?= $anggota['alamat']; ?></td>
                                             <td><?= $anggota['no_hp']; ?></td>
                                             <td><?= $anggota['email']; ?></td>
                                             <td>
-                                                <a href="<?= BASEURL ?>/admin/UpdateAnggota/<?= $anggota['id_anggota'] ?>" class="badge bg-warning text-muted ms-3 p-2 tampilModalUbahAnggota" data-toggle="modal" data-target="#modalAddAnggota" data-id="<?= $anggota['id_anggota'] ?>" title="Edit"><i class="bi bi-pencil-square text-white"></i></a>
-                                                <a href="<?= BASEURL ?>/admin/deleteAnggota/<?= $anggota['id_anggota'] ?>" class="badge bg-danger text-muted ms-3 p-2" onclick="return confirm('yakin?')" title="Hapus"><i class="bi bi-trash-fill text-white"></i></a>
+                                                <a href="<?= BASEURL ?>/admin/updateanggota/<?= $anggota['id_anggota'] ?>" class="badge bg-warning text-muted ms-3 p-2 tampilModalUbahAnggota" data-toggle="modal" data-target="#modalAddAnggota" data-id="<?= $anggota['id_anggota'] ?>" title="Edit"><i class="bi bi-pencil-square text-white"></i></a>
+                                                <a href="<?= BASEURL ?>/admin/deleteanggota/<?= $anggota['id_anggota'] ?>" class="badge bg-danger text-muted ms-3 p-2" onclick="return confirm('yakin?')" title="Hapus"><i class="bi bi-trash-fill text-white"></i></a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
@@ -68,7 +68,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="<?= BASEURL ?>/admin/addAnggota" method="post">
+                <form action="<?= BASEURL ?>/admin/addanggota" method="post">
                     <input type="hidden" name="id_anggota" id="id_anggota">
                     <div class="form-group">
                         <div class="row">

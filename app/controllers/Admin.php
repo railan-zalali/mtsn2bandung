@@ -1,12 +1,12 @@
 <?php
 
-class Admin extends Controller
+class admin extends Controller
 {
 
-    public function addPinjam()
+    public function addpinjam()
     {
         $id_user = $_SESSION['id_user'];
-        if ($this->model('Admin_model')->addPinjam($_POST, $id_user) > 0) {
+        if ($this->model('admin_model')->addpinjam($_POST, $id_user) > 0) {
             Flasher::setFlash('Berhasil', 'Ditambahkan', 'success');
             header('Location: ' . BASEURL . '/admin/pinjam');
             exit;
@@ -16,10 +16,10 @@ class Admin extends Controller
             exit;
         }
     }
-    public function addBuku()
+    public function addbuku()
     {
         $id_user = $_SESSION['id_user'];
-        if ($this->model('Admin_model')->addBuku($_POST, $id_user) > 0) {
+        if ($this->model('admin_model')->addbuku($_POST, $id_user) > 0) {
             Flasher::setFlash('Berhasil', 'Ditambahkan', 'success');
             header('Location: ' . BASEURL . '/admin/buku');
             exit;
@@ -29,9 +29,9 @@ class Admin extends Controller
             exit;
         }
     }
-    public function addAnggota()
+    public function addanggota()
     {
-        if ($this->model('Admin_model')->addAnggota($_POST) > 0) {
+        if ($this->model('admin_model')->addanggota($_POST) > 0) {
             Flasher::setFlash('Berhasil', 'Ditambahkan', 'success');
             header('Location: ' . BASEURL . '/admin/anggota');
             exit;
@@ -41,9 +41,9 @@ class Admin extends Controller
             exit;
         }
     }
-    public function addPetugas()
+    public function addpetugas()
     {
-        if ($this->model('Admin_model')->addPetugas($_POST) > 0) {
+        if ($this->model('admin_model')->addpetugas($_POST) > 0) {
             Flasher::setFlash('Berhasil', 'Ditambahkan', 'success');
             header('Location: ' . BASEURL . '/admin/petugas');
             exit;
@@ -65,9 +65,9 @@ class Admin extends Controller
 
 
 
-    public function updatePinjam()
+    public function updatepinjam()
     {
-        if ($this->model('Admin_model')->UpdateDataPinjam($_POST, $_POST['id_pinjam']) > 0) {
+        if ($this->model('admin_model')->updatedatapinjam($_POST, $_POST['id_pinjam']) > 0) {
             Flasher::setFlash('Berhasil', 'Diubah', 'success');
             // var_dump($_POST);
             // die();
@@ -80,14 +80,14 @@ class Admin extends Controller
         }
     }
 
-    public function getUpdatePinjam($id_pinjam)
+    public function getupdatepinjam($id_pinjam)
     {
-        echo json_encode($this->model('Admin_model')->getPinjamById($id_pinjam));
+        echo json_encode($this->model('admin_model')->getpinjambyid($id_pinjam));
     }
 
-    public function updateBuku()
+    public function updatebuku()
     {
-        if ($this->model('Admin_model')->UpdateDataBuku($_POST, $_POST['id_buku_induk']) > 0) {
+        if ($this->model('admin_model')->updatedatabuku($_POST, $_POST['id_buku_induk']) > 0) {
             Flasher::setFlash('Berhasil', 'Diubah', 'success');
             // var_dump($_POST);
             // die();
@@ -100,14 +100,14 @@ class Admin extends Controller
         }
     }
 
-    public function getUpdateBuku($id_buku_induk)
+    public function getupdatebuku($id_buku_induk)
     {
-        echo json_encode($this->model('Admin_model')->getBukuById($id_buku_induk));
+        echo json_encode($this->model('admin_model')->getbukubyid($id_buku_induk));
     }
 
-    public function UpdatePetugas()
+    public function updatepetugas()
     {
-        if ($this->model('Admin_model')->UpdateDataPetugas($_POST, $_POST['id_user']) > 0) {
+        if ($this->model('admin_model')->updatedatapetugas($_POST, $_POST['id_user']) > 0) {
             Flasher::setFlash('Berhasil', 'Diubah', 'success');
             header('Location: ' . BASEURL . '/admin/petugas');
             exit;
@@ -117,13 +117,13 @@ class Admin extends Controller
             exit;
         }
     }
-    public function getUpdatePetugas($id_user)
+    public function getupdatepetugas($id_user)
     {
-        echo json_encode($this->model('Admin_model')->getPetugasById($id_user));
+        echo json_encode($this->model('admin_model')->getpetugasbyid($id_user));
     }
-    public function UpdateAnggota()
+    public function updateanggota()
     {
-        if ($this->model('Admin_model')->UpdateDataAnggota($_POST, $_POST['id_anggota']) > 0) {
+        if ($this->model('admin_model')->updatedataanggota($_POST, $_POST['id_anggota']) > 0) {
             Flasher::setFlash('Berhasil', 'Diubah', 'success');
             header('Location: ' . BASEURL . '/admin/anggota');
             exit;
@@ -133,9 +133,9 @@ class Admin extends Controller
             exit;
         }
     }
-    public function getUpdateAnggota($id_anggota)
+    public function getupdateanggota($id_anggota)
     {
-        echo json_encode($this->model('Admin_model')->getAnggotaById($id_anggota));
+        echo json_encode($this->model('admin_model')->getanggotabyid($id_anggota));
     }
 
 
@@ -148,9 +148,9 @@ class Admin extends Controller
 
 
 
-    public function deletePinjam($id_pinjam)
+    public function deletepinjam($id_pinjam)
     {
-        if ($this->model('admin_model')->deletePinjam($id_pinjam) > 0) {
+        if ($this->model('admin_model')->deletepinjam($id_pinjam) > 0) {
             Flasher::setFlash('Berhasil', 'Dihapus', 'success');
             header('Location: ' . BASEURL . '/admin/pinjam');
             exit;
@@ -160,9 +160,9 @@ class Admin extends Controller
             exit;
         }
     }
-    public function deleteBuku($id_buku_induk)
+    public function deletebuku($id_buku_induk)
     {
-        if ($this->model('admin_model')->deleteBuku($id_buku_induk) > 0) {
+        if ($this->model('admin_model')->deletebuku($id_buku_induk) > 0) {
             Flasher::setFlash('Berhasil', 'Dihapus', 'success');
             header('Location: ' . BASEURL . '/admin/buku');
             exit;
@@ -172,9 +172,9 @@ class Admin extends Controller
             exit;
         }
     }
-    public function deletePetugas($id_user)
+    public function deletepetugas($id_user)
     {
-        if ($this->model('admin_model')->deletePetugas($id_user) > 0) {
+        if ($this->model('admin_model')->deletepetugas($id_user) > 0) {
             Flasher::setFlash('Berhasil', 'Dihapus', 'success');
             header('Location: ' . BASEURL . '/admin/petugas');
             exit;
@@ -184,9 +184,9 @@ class Admin extends Controller
             exit;
         }
     }
-    public function deleteAnggota($id_anggota)
+    public function deleteanggota($id_anggota)
     {
-        if ($this->model('admin_model')->deleteAnggota($id_anggota) > 0) {
+        if ($this->model('admin_model')->deleteanggota($id_anggota) > 0) {
             Flasher::setFlash('Berhasil', 'Dihapus', 'success');
             header('Location: ' . BASEURL . '/admin/anggota');
             exit;
@@ -211,11 +211,11 @@ class Admin extends Controller
 
         $data['judul'] = "Dashboard";
         if (isset($_SESSION['pegawai'])) {
-            $data['judul'] = "Data Pinjam";
-            $data['pinjam'] = $this->model('Admin_model')->getPinjam();
-            $data['kls'] = $this->model('Admin_model')->getKelas();
-            $data['buku'] = $this->model('Admin_model')->getBuku();
-            $data['anggota'] = $this->model('Admin_model')->getAnggota();
+            $data['judul'] = "Data pinjam";
+            $data['pinjam'] = $this->model('admin_model')->getpinjam();
+            $data['kls'] = $this->model('admin_model')->getkelas();
+            $data['buku'] = $this->model('admin_model')->getbuku();
+            $data['anggota'] = $this->model('admin_model')->getanggota();
             // var_dump($data);
             // die();
             // $this->view('templates/admin/header', $data);
@@ -230,11 +230,11 @@ class Admin extends Controller
 
         $data['judul'] = "Dashboard";
         if (isset($_SESSION['pegawai'])) {
-            $data['judul'] = "Data Pinjam";
-            $data['pinjam'] = $this->model('Admin_model')->getPinjam();
-            $data['kls'] = $this->model('Admin_model')->getKelas();
-            $data['buku'] = $this->model('Admin_model')->getBuku();
-            $data['anggota'] = $this->model('Admin_model')->getAnggota();
+            $data['judul'] = "Data pinjam";
+            $data['pinjam'] = $this->model('admin_model')->getpinjam();
+            $data['kls'] = $this->model('admin_model')->getkelas();
+            $data['buku'] = $this->model('admin_model')->getbuku();
+            $data['anggota'] = $this->model('admin_model')->getanggota();
             // var_dump($data);
             // die();
             $this->view('templates/admin/header', $data);
@@ -250,9 +250,9 @@ class Admin extends Controller
 
         $data['judul'] = "Dashboard";
         if (isset($_SESSION['pegawai'])) {
-            $data['judul'] = "Data Buku";
-            $data['buku'] = $this->model('Admin_model')->getBuku();
-            $data['kls'] = $this->model('Admin_model')->getKelas();
+            $data['judul'] = "Data buku";
+            $data['buku'] = $this->model('admin_model')->getbuku();
+            $data['kls'] = $this->model('admin_model')->getkelas();
             // var_dump($data);
             // die();
             $this->view('templates/admin/header', $data);
@@ -267,9 +267,9 @@ class Admin extends Controller
 
         $data['judul'] = "Dashboard";
         if (isset($_SESSION['pegawai'])) {
-            $data['judul'] = "Data Petugas";
-            $data['anggota'] = $this->model('Admin_model')->getAnggota();
-            $data['kls'] = $this->model('Admin_model')->getKelas();
+            $data['judul'] = "Data petugas";
+            $data['anggota'] = $this->model('admin_model')->getanggota();
+            $data['kls'] = $this->model('admin_model')->getkelas();
             // var_dump($data);
             // die();
             $this->view('templates/admin/header', $data);
@@ -283,9 +283,9 @@ class Admin extends Controller
     public function petugas()
     {
         if (isset($_SESSION['pegawai']) && isset($_SESSION['id_level']) && $_SESSION['id_level'] == 1) {
-            $data['judul'] = "Data Petugas";
-            $data['user'] = $this->model('Admin_model')->getPetugas();
-            $data['level'] = $this->model('Admin_model')->getLevel();
+            $data['judul'] = "Data petugas";
+            $data['user'] = $this->model('admin_model')->getpetugas();
+            $data['level'] = $this->model('admin_model')->getlevel();
             $this->view('templates/admin/header', $data);
             $this->view('adminperpus/petugas', $data);
             $this->view('templates/admin/footer');
@@ -301,19 +301,19 @@ class Admin extends Controller
 
     //     if (isset($_SESSION['pegawai'])) {
     //         if ($_SESSION['id_level'] == 1) {
-    //             $data['judul'] = "Data Petugas";
-    //             $data['user'] = $this->model('Admin_model')->getPetugas();
-    //             $data['level'] = $this->model('Admin_model')->getLevel();
+    //             $data['judul'] = "Data petugas";
+    //             $data['user'] = $this->model('admin_model')->getpetugas();
+    //             $data['level'] = $this->model('admin_model')->getlevel();
 
     //             $this->view('templates/admin/header', $data);
     //             $this->view('adminperpus/petugas', $data);
     //             $this->view('templates/admin/footer');
     //         } else {
     //             $data['judul'] = "Dashboard";
-    //             $data['countbuku'] = $this->model('Admin_model')->countBuku();
-    //             $data['countpinjam'] = $this->model('Admin_model')->countByPinjam();
-    //             $data['countkembali'] = $this->model('Admin_model')->countByKembali();
-    //             $data['countanggota'] = $this->model('Admin_model')->countAnggota();
+    //             $data['countbuku'] = $this->model('admin_model')->countbuku();
+    //             $data['countpinjam'] = $this->model('admin_model')->countbypinjam();
+    //             $data['countkembali'] = $this->model('admin_model')->countbykembali();
+    //             $data['countanggota'] = $this->model('admin_model')->countanggota();
 
     //             $this->view('templates/admin/header', $data);
     //             $this->view('admin/index', $data);
@@ -332,11 +332,12 @@ class Admin extends Controller
     public function index()
     {
         $data['judul'] = "Dashboard";
-        $data['countbuku'] = $this->model('Admin_model')->countBuku();
-        $data['countpinjam'] = $this->model('Admin_model')->countByPinjam();
-        $data['countkembali'] = $this->model('Admin_model')->countByKembali();
-        $data['countanggota'] = $this->model('Admin_model')->countAnggota();
-        $data['countpetugas'] = $this->model('Admin_model')->countPetugas();
+        $data['countbuku'] = $this->model('admin_model')->countbuku();
+        $data['countpinjam'] = $this->model('admin_model')->countbypinjam();
+        $data['countkembali'] = $this->model('admin_model')->countbykembali();
+        $data['countanggota'] = $this->model('admin_model')->countanggota();
+        $data['countpetugas'] = $this->model('admin_model')->countpetugas();
+        $data['pinjam'] = $this->model('admin_model')->getpinjam();
 
         if (isset($_SESSION['pegawai']) && isset($_SESSION['status']) && $_SESSION['status'] === 'aktif') {
             $data['judul'] = "Dashboard";
@@ -344,7 +345,6 @@ class Admin extends Controller
             $this->view('admin/index', $data);
             $this->view('templates/admin/footer');
         } else {
-
             $this->view('admin/login');
         }
     }
@@ -379,7 +379,7 @@ class Admin extends Controller
     public function admin_register()
     {
         if (!empty($_POST['email']) && !empty($_POST['password'])) {
-            $admin_model = $this->model('Admin_model');
+            $admin_model = $this->model('admin_model');
 
             if ($admin_model->register_admin($_POST['nama_user'], $_POST['username'], $_POST['email'], $_POST['password']) > 0) {
 
@@ -404,7 +404,7 @@ class Admin extends Controller
 
     public function admin_login()
     {
-        $loginResult = $this->model('Admin_model')->login_admin($_POST['email'], $_POST['password']);
+        $loginResult = $this->model('admin_model')->login_admin($_POST['email'], $_POST['password']);
 
         if ($loginResult !== 'error') {
             if (isset($_SESSION['status']) && $_SESSION['status'] == "aktif") {

@@ -53,13 +53,15 @@ $(function () {
     $(".modal-footer button[type=submit]").html("Ubah Data");
     $(".modal-body form").attr(
       "action",
-      "http://localhost/perpustakaan/public/admin/UpdateAnggota"
+      "https://perpustakaanmtsn2bandung.dyatnas.my.id/public/admin/updateanggota"
     );
 
     const id_anggota = $(this).data("id");
 
     $.ajax({
-      url: "http://localhost/perpustakaan/public/admin/getUpdateAnggota/" + id_anggota,
+      url:
+        "https://perpustakaanmtsn2bandung.dyatnas.my.id/public/admin/getapdateanggota/" +
+        id_anggota,
       method: "post",
       dataType: "json",
       success: function (data) {
@@ -80,13 +82,14 @@ $(function () {
     $(".modal-footer button[type=submit]").html("Ubah Data");
     $(".modal-body form").attr(
       "action",
-      "http://localhost/perpustakaan/public/admin/UpdatePetugas"
+      "https://perpustakaanmtsn2bandung.dyatnas.my.id/public/admin/updatepetugas"
     );
 
     const id_user = $(this).data("id");
 
     $.ajax({
-      url: "http://localhost/perpustakaan/public/admin/getUpdatePetugas/" + id_user,
+      url:
+        "https://perpustakaanmtsn2bandung.dyatnas.my.id/public/admin/getupdatepetugas/" + id_user,
       method: "post",
       dataType: "json",
       success: function (data) {
@@ -103,12 +106,17 @@ $(function () {
   $(".tampilModalUbah").on("click", function () {
     $("#formModalLabel").html("Ubah Data");
     $(".modal-footer button[type=submit]").html("Ubah Data");
-    $(".modal-body form").attr("action", "http://localhost/perpustakaan/public/admin/updateBuku");
+    $(".modal-body form").attr(
+      "action",
+      "https://perpustakaanmtsn2bandung.dyatnas.my.id/public/admin/updatebuku"
+    );
 
     const id_buku_induk = $(this).data("id");
 
     $.ajax({
-      url: "http://localhost/perpustakaan/public/admin/getUpdateBuku/" + id_buku_induk,
+      url:
+        "https://perpustakaanmtsn2bandung.dyatnas.my.id/public/admin/getupdatebuku/" +
+        id_buku_induk,
       method: "post",
       dataType: "json",
       success: function (data) {
@@ -127,12 +135,16 @@ $(function () {
   $(".tampilModalUbahPinjam").on("click", function () {
     $("#formModalLabel").html("Ubah Data");
     $(".modal-footer button[type=submit]").html("Ubah Data");
-    $(".modal-body form").attr("action", "http://localhost/perpustakaan/public/admin/updatePinjam");
+    $(".modal-body form").attr(
+      "action",
+      "https://perpustakaanmtsn2bandung.dyatnas.my.id/public/admin/updatepinjam"
+    );
 
     const id_pinjam = $(this).data("id");
 
     $.ajax({
-      url: "http://localhost/perpustakaan/public/admin/getUpdatePinjam/" + id_pinjam,
+      url:
+        "https://perpustakaanmtsn2bandung.dyatnas.my.id/public/admin/getupdatepinjam/" + id_pinjam,
       method: "post",
       dataType: "json",
       success: function (data) {

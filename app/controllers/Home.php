@@ -1,7 +1,7 @@
 <?php
 
 
-class Home extends Controller
+class home extends Controller
 {
 
     public function index()
@@ -24,7 +24,7 @@ class Home extends Controller
 
     public function proses_register()
     {
-        if ($this->model('Perpus_model')->register($_POST) > 0) {
+        if ($this->model('perpus_model')->register($_POST) > 0) {
             Flasher::setLogin('Berhasil', 'Registrasi', 'success');
             header('Location: ' . BASEURL . '/home/index');
             exit;
@@ -40,7 +40,7 @@ class Home extends Controller
     public function proses_login()
     {
 
-        if ($this->model('Perpus_model')->login_user($_POST['username'], $_POST['password']) !== 'error') {
+        if ($this->model('perpus_model')->login_user($_POST['username'], $_POST['password']) !== 'error') {
             if (isset($_SESSION['user'])) {
                 Flasher::setLogin('Berhasil', 'Login', 'success');
                 header('Location: ' . BASEURL . '/home/index');
@@ -61,7 +61,7 @@ class Home extends Controller
     {
         if (isset($_SESSION['user'])) {
             $data['judul'] = 'Utama';
-            $data['pinjam'] = $this->model('Perpus_model')->cariData();
+            $data['pinjam'] = $this->model('perpus_model')->caridata();
             $this->view('templates/header', $data);
             $this->view('home/index', $data);
             $this->view('templates/footer');

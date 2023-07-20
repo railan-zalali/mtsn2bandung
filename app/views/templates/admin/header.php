@@ -74,7 +74,7 @@
                         <a class="collapse-item" href="<?= BASEURL ?>/admin/anggota">Data Anggota</a>
                         <a class="collapse-item" href="<?= BASEURL ?>/admin/buku">Data Buku</a>
                         <a class="collapse-item" href="<?= BASEURL ?>/admin/pinjam">Data Peminjaman</a>
-                        <a class="collapse-item" href="buttons.html">Data Laporan</a>
+
                     </div>
                 </div>
             </li>

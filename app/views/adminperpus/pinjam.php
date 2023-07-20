@@ -51,9 +51,9 @@
                                             <td><?= $pinjam['status']; ?></td>
 
                                             <td>
-                                                <a href="<?= BASEURL ?>/admin/updatePinjam/<?= $pinjam['id_pinjam'] ?>" class="badge bg-warning text-muted ms-3 p-2 tampilModalUbahPinjam" data-toggle="modal" data-target="#modalAddPinjam" data-id="<?= $pinjam['id_pinjam'] ?>" title="Edit"><i class="bi bi-pencil-square text-white"></i></a>
+                                                <a href="<?= BASEURL ?>/admin/updatepinjam/<?= $pinjam['id_pinjam'] ?>" class="badge bg-warning text-muted ms-3 p-2 tampilModalUbahPinjam" data-toggle="modal" data-target="#modalAddPinjam" data-id="<?= $pinjam['id_pinjam'] ?>" title="Edit"><i class="bi bi-pencil-square text-white"></i></a>
 
-                                                <a href="<?= BASEURL ?>/admin/deletePinjam/<?= $pinjam['id_pinjam'] ?>" class="badge bg-danger text-muted ms-3 p-2" onclick="return confirm('yakin?')" title="Hapus"><i class="bi bi-trash-fill text-white"></i></a>
+                                                <a href="<?= BASEURL ?>/admin/deletepinjam/<?= $pinjam['id_pinjam'] ?>" class="badge bg-danger text-muted ms-3 p-2" onclick="return confirm('yakin?')" title="Hapus"><i class="bi bi-trash-fill text-white"></i></a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
@@ -78,7 +78,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="<?= BASEURL ?>/admin/addPinjam" method="post">
+                <form action="<?= BASEURL ?>/admin/addpinjam" method="post">
                     <input type="hidden" name="id_pinjam" id="id_pinjam">
                     <div class="form-group">
                         <div class="row my-2">
@@ -92,19 +92,7 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="row my-2">
-                            <div class="col">
-                                <div class="mb-3">
-                                    <label for="id_kelas" class="form-label">Kelas</label>
-                                    <select class="form-control" name="id_kelas" id="id_kelas">
-                                        <option> --= Pilih Jenis Kelamin =--</option>
-                                        <?php foreach ($data['kls'] as $kelas) : ?>
-                                            <option value="<?= $kelas['id_kelas'] ?>"><?= $kelas['nama_kelas'] . '' . $kelas['abjad']; ?></option>
-                                        <?php endforeach; ?>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
+
                         <div class="row">
                             <div class="col my-2">
                                 <div class="input-group">
@@ -136,7 +124,7 @@
 
                         <div class="row">
                             <div class="col my-2">
-                                <label for="kelas" class="form-label">Keterangan</label>
+                                <label for="keterangan" class="form-label">Keterangan</label>
                                 <select class="form-control" aria-label="Default select example" name="keterangan" id="keterangan">
                                     <option></option>
                                     <option value="Rumah">Rumah</option>

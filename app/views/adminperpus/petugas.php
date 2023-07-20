@@ -39,8 +39,8 @@
                                             <td><?= $user['email']; ?></td>
                                             <td><?= $user['status']; ?></td>
                                             <td>
-                                                <a href="<?= BASEURL ?>/admin/UpdatePetugas/<?= $user['id_user'] ?>" class="badge bg-warning text-muted ms-3 p-2 tampilModalUbahPetugas" data-toggle="modal" data-target="#modalAdd" data-id="<?= $user['id_user'] ?>" title="Edit"><i class="bi bi-pencil-square text-white"></i></a>
-                                                <a href="<?= BASEURL ?>/admin/deletePetugas/<?= $user['id_user'] ?>" class="badge bg-danger text-muted ms-3 p-2" onclick="return confirm('yakin?')" title="Hapus"><i class="bi bi-trash-fill text-white"></i></a>
+                                                <a href="<?= BASEURL ?>/admin/updatepetugas/<?= $user['id_user'] ?>" class="badge bg-warning text-muted ms-3 p-2 tampilModalUbahPetugas" data-toggle="modal" data-target="#modalAdd" data-id="<?= $user['id_user'] ?>" title="Edit"><i class="bi bi-pencil-square text-white"></i></a>
+                                                <a href="<?= BASEURL ?>/admin/deletepetugas/<?= $user['id_user'] ?>" class="badge bg-danger text-muted ms-3 p-2" onclick="return confirm('yakin?')" title="Hapus"><i class="bi bi-trash-fill text-white"></i></a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
@@ -65,7 +65,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="<?= BASEURL ?>/admin/addPetugas" method="post">
+                <form action="<?= BASEURL ?>/admin/addpetugas" method="post">
                     <input type="hidden" name="id_user" id="id_user">
                     <div class="form-group">
                         <div class="row">

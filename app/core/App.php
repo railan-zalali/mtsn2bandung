@@ -1,6 +1,7 @@
-<?php 
+<?php
 
-class App {
+class App
+{
 	protected $controller = 'Home';
 	protected $method = 'index';
 	protected $params = [];
@@ -8,7 +9,7 @@ class App {
 	public function __construct()
 	{
 		$url = $this->parseURL();
-		
+
 		// controller
 		// if (file_exists('../app/controllers/' .$url[0] . '.php' ) ) {
 		// 	$this->controller = $url[0];
@@ -18,12 +19,12 @@ class App {
 		if ($url == NULL) {
 			$url = [$this->controller];
 		}
-		if (file_exists('../app/controllers/'.$url[0].'.php')) {
+		if (file_exists('../app/controllers/' . $url[0] . '.php')) {
 			$this->controller = $url[0];
 			unset($url[0]);
 		}
 
-		require_once '../app/controllers/'. $this->controller .'.php';
+		require_once '../app/controllers/' . $this->controller . '.php';
 		$this->controller = new $this->controller;
 
 		// method
@@ -53,7 +54,8 @@ class App {
 			return $url;
 		}
 	}
-	public function check_login() {
+	public function check_login()
+	{
 		if (!isset($_SESSION['user'])) {
 			header('Location: ' . BASEURL . '/home/login');
 			exit;

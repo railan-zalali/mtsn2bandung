@@ -45,8 +45,8 @@
                                             <td><?= $buku['tanggal_masuk']; ?></td>
                                             <td><?= $buku['tahun']; ?></td>
                                             <td>
-                                                <a href="<?= BASEURL ?>/admin/updateBuku/<?= $buku['id_buku_induk'] ?>" class="badge bg-warning text-muted ms-3 p-2 tampilModalUbah" data-toggle="modal" data-target="#modalAddBuku" data-id="<?= $buku['id_buku_induk'] ?>" title="Edit"><i class="bi bi-pencil-square text-white"></i></a>
-                                                <a href="<?= BASEURL ?>/admin/deleteBuku/<?= $buku['id_buku_induk'] ?>" class="badge bg-danger text-muted ms-3 p-2" onclick="return confirm('yakin?')" title="Hapus"><i class="bi bi-trash-fill text-white"></i></a>
+                                                <a href="<?= BASEURL ?>/admin/updatebuku/<?= $buku['id_buku_induk'] ?>" class="badge bg-warning text-muted ms-3 p-2 tampilModalUbah" data-toggle="modal" data-target="#modalAddBuku" data-id="<?= $buku['id_buku_induk'] ?>" title="Edit"><i class="bi bi-pencil-square text-white"></i></a>
+                                                <a href="<?= BASEURL ?>/admin/deletebuku/<?= $buku['id_buku_induk'] ?>" class="badge bg-danger text-muted ms-3 p-2" onclick="return confirm('yakin?')" title="Hapus"><i class="bi bi-trash-fill text-white"></i></a>
                                             </td>
                                         </tr>
                                     <?php endforeach; ?>
@@ -71,7 +71,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form action="<?= BASEURL ?>/admin/addBuku" method="post">
+                <form action="<?= BASEURL ?>/admin/addbuku" method="post">
                     <input type="hidden" name="id_buku_induk" id="id_buku_induk">
                     <div class="form-group">
                         <div class="row my-3">

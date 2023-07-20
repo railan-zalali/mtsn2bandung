@@ -1,5 +1,5 @@
 <?php
-class Users_logout
+class users_logout
 {
 
     public function logout()

@@ -15,7 +15,7 @@ class Perpus_model
 
     public function __construct()
     {
-        $this->db = new Database;
+        $this->db = new database;
     }
 
     // public function getAllPerpus()
@@ -40,7 +40,7 @@ class Perpus_model
 
 
 
-    public function cariData()
+    public function caridata()
     {
         $keyword = $_POST['keyword'];
         $query = 'SELECT ' .
@@ -80,7 +80,7 @@ WHERE ' . $this->table_pinjam . '.tanggal LIKE :keyword OR ' . $this->table_buku
 
 
 
-    public function Register($data)
+    public function register($data)
     {
 
         $query = "INSERT INTO user

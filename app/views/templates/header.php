@@ -70,7 +70,7 @@
 						<li class="nav-item dropdown">
 							<div class="dropdown text-end my-2 mx-4">
 								<a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-									<img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+									<img src="<?= BASEURL; ?>/img/userwht.png" alt="mdo" width="32" height="32" class="rounded-circle">
 									Hai <?= $_SESSION['username'] ?>
 								</a>
 								<ul class="dropdown-menu text-small">

@@ -18,7 +18,7 @@ class Admin_model
 
 
 
-    public function deletePinjam($id_pinjam)
+    public function deletepinjam($id_pinjam)
     {
         $query = "DELETE FROM pinjaman WHERE id_pinjam = :id_pinjam";
         $this->db->query($query);
@@ -29,7 +29,7 @@ class Admin_model
         return $this->db->rowCount();
     }
 
-    public function deleteBuku($id_buku_induk)
+    public function deletebuku($id_buku_induk)
     {
         $query = "DELETE FROM buku_induk WHERE id_buku_induk = :id_buku_induk";
         $this->db->query($query);
@@ -40,7 +40,7 @@ class Admin_model
         return $this->db->rowCount();
     }
 
-    public function deletePetugas($id_user)
+    public function deletepetugas($id_user)
     {
         $query = "DELETE FROM user WHERE id_user = :id_user";
         $this->db->query($query);
@@ -51,7 +51,7 @@ class Admin_model
         return $this->db->rowCount();
     }
 
-    public function deleteAnggota($id_anggota)
+    public function deleteanggota($id_anggota)
     {
         $query = "DELETE FROM anggota WHERE id_anggota = :id_anggota";
         $this->db->query($query);
@@ -69,19 +69,18 @@ class Admin_model
 
 
 
-    public function addPinjam($data, $id_user)
+    public function addpinjam($data, $id_user)
     {
 
 
         $query = "INSERT INTO pinjaman
 					VALUES 
-					('', :id_buku_induk, :id_petugas, :id_anggota, :id_kelas, :tanggal, :jumlah_pinjam, null, :keterangan, 'dipinjam')";
+					('', :id_buku_induk, :id_petugas, :id_anggota, :tanggal, :jumlah_pinjam, null, :keterangan, 'dipinjam')";
         $this->db->query($query);
         $this->db->bind('id_buku_induk', $data['id_buku_induk']);
         $this->db->bind('id_petugas', $id_user);
         $this->db->bind('id_anggota', $data['id_anggota']);
         $this->db->bind('tanggal', $data['tanggal']);
-        $this->db->bind('id_kelas', $data['id_kelas']);
         $this->db->bind('jumlah_pinjam', $data['jumlah_pinjam']);
         $this->db->bind('keterangan', $data['keterangan']);
 
@@ -89,7 +88,7 @@ class Admin_model
 
         return $this->db->rowCount();
     }
-    public function addPerpus($data, $id_user)
+    public function addperpus($data, $id_user)
     {
 
         $query = "INSERT INTO pinjaman
@@ -112,7 +111,7 @@ class Admin_model
         return $this->db->rowCount();
     }
 
-    public function addBuku($data, $id_user)
+    public function addbuku($data, $id_user)
     {
         // var_dump($data);
         // die();
@@ -135,7 +134,7 @@ class Admin_model
         return $this->db->rowCount();
     }
 
-    public function addAnggota($data)
+    public function addanggota($data)
     {
         // var_dump($data);
         // die();
@@ -155,19 +154,18 @@ class Admin_model
         return $this->db->rowCount();
     }
 
-    public function addPetugas($data)
+    public function addpetugas($data)
     {
         // var_dump($data);
         // die();
         $query = "INSERT INTO user 
                     VALUES
-                    ('', :id_level, :nama_user, :username, :email, :password, :status)";
+                    ('', :id_level, :nama_user, :username, :email, NULL,:status)";
         $this->db->query($query);
         $this->db->bind('id_level', $data['id_level']);
         $this->db->bind('nama_user', $data['nama_user']);
         $this->db->bind('username', $data['username']);
         $this->db->bind('email', $data['email']);
-        $this->db->bind('password', $data['password']);
         $this->db->bind('status', $data['status']);
         $this->db->execute();
 
@@ -178,7 +176,7 @@ class Admin_model
 
 
 
-    // public function getPetugas()
+    // public function getpetugas()
     // {
     //     $this->db->query('SELECT ' . $this->table . '.*, ' . $this->table_level . '.level
     //     FROM ' . $this->table . '
@@ -187,7 +185,7 @@ class Admin_model
     // }
 
 
-    public function getPinjam()
+    public function getpinjam()
     {
         $this->db->query('SELECT ' .
             $this->table_pinjam . '.*, ' .
@@ -202,7 +200,7 @@ class Admin_model
         return $this->db->resultSet();
     }
 
-    public function getBuku()
+    public function getbuku()
     {
         $this->db->query('SELECT * FROM ' . $this->table_buku);
         return $this->db->resultSet();
@@ -213,7 +211,7 @@ class Admin_model
         return $this->db->resultSet();
     }
 
-    public function getAnggota()
+    public function getanggota()
     {
         $this->db->query('SELECT ' .
             $this->table_anggota . '. * ,' .
@@ -224,13 +222,13 @@ class Admin_model
         return $this->db->resultSet();
     }
 
-    public function getLevel()
+    public function getlevel()
     {
         $this->db->query('SELECT * FROM ' . $this->table_level);
         return $this->db->resultSet();
     }
 
-    public function getPetugas()
+    public function getpetugas()
     {
         $this->db->query('SELECT ' . $this->table . '.*, ' . $this->table_level . '.level
         FROM ' . $this->table . '
@@ -241,27 +239,27 @@ class Admin_model
 
 
 
-    public function getPinjamById($id_pinjam)
+    public function getpinjambyid($id_pinjam)
     {
         $this->db->query('SELECT * FROM ' . $this->table_pinjam . ' WHERE id_pinjam = :id_pinjam');
         $this->db->bind('id_pinjam', $id_pinjam);
         return $this->db->single();
     }
-    public function getPetugasById($id_user)
+    public function getpetugasbyid($id_user)
     {
         $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id_user = :id_user');
         $this->db->bind('id_user', $id_user);
 
         return $this->db->single();
     }
-    public function getAnggotaById($id_anggota)
+    public function getanggotabyid($id_anggota)
     {
         $this->db->query('SELECT * FROM ' . $this->table_anggota . ' WHERE id_anggota = :id_anggota');
         $this->db->bind('id_anggota', $id_anggota);
 
         return $this->db->single();
     }
-    public function getBukuById($id_buku_induk)
+    public function getbukubyid($id_buku_induk)
     {
         $this->db->query('SELECT * FROM ' . $this->table_buku . ' WHERE id_buku_induk = :id_buku_induk');
         $this->db->bind('id_buku_induk', $id_buku_induk);
@@ -277,26 +275,26 @@ class Admin_model
 
 
 
-    public function countPetugas()
+    public function countpetugas()
     {
         $this->db->query('SELECT COUNT(*) AS count FROM ' . $this->table);
         $row = $this->db->single();
         return $row['count'];
     }
 
-    public function countBuku()
+    public function countbuku()
     {
         $this->db->query('SELECT COUNT(*) AS count FROM ' . $this->table_buku);
         $row = $this->db->single();
         return $row['count'];
     }
-    public function countAnggota()
+    public function countanggota()
     {
         $this->db->query('SELECT COUNT(*) AS count FROM ' . $this->table_anggota);
         $row = $this->db->single();
         return $row['count'];
     }
-    public function countByPinjam($status = 'dipinjam')
+    public function countbypinjam($status = 'dipinjam')
     {
         $this->db->query('SELECT COUNT(*) AS count FROM ' . $this->table_pinjam . ' WHERE status=:status');
         $this->db->bind('status', $status);
@@ -304,7 +302,7 @@ class Admin_model
         return $row['count'];
     }
 
-    public function countByKembali($status = 'dikembalikan')
+    public function countbyKembali($status = 'dikembalikan')
     {
         $this->db->query('SELECT COUNT(*) AS count FROM ' . $this->table_pinjam . ' WHERE status=:status');
         $this->db->bind('status', $status);
@@ -326,12 +324,11 @@ class Admin_model
 
 
 
-    public function UpdateDataPinjam($data, $id_pinjam)
+    public function updatedatapinjam($data, $id_pinjam)
     {
         $query = "UPDATE pinjaman SET 
 						id_buku_induk = :id_buku_induk,
 						id_anggota = :id_anggota,
-						id_kelas = :id_kelas,
 						tanggal = :tanggal,
 						jumlah_pinjam = :jumlah_pinjam,
 						jumlah_kembali = :jumlah_kembali,
@@ -343,7 +340,6 @@ class Admin_model
         $this->db->query($query);
         $this->db->bind('id_buku_induk', $data['id_buku_induk']);
         $this->db->bind('id_anggota', $data['id_anggota']);
-        $this->db->bind('id_kelas', $data['id_kelas']);
         $this->db->bind('tanggal', $data['tanggal']);
         $this->db->bind('jumlah_pinjam', $data['jumlah_pinjam']);
         $this->db->bind('jumlah_kembali', $data['jumlah_kembali']);
@@ -356,7 +352,7 @@ class Admin_model
         return $this->db->rowCount();
     }
 
-    public function UpdateDataBuku($data, $id_buku_induk)
+    public function updatedatabuku($data, $id_buku_induk)
     {
         $query = "UPDATE buku_induk SET 
 						nomor_induk = :nomor_induk,
@@ -386,7 +382,7 @@ class Admin_model
         return $this->db->rowCount();
     }
 
-    public function UpdateDataPetugas($data, $id_user)
+    public function updatedatapetugas($data, $id_user)
     {
         // var_dump($data);
         // die();
@@ -404,7 +400,7 @@ class Admin_model
         return $this->db->rowCount();
     }
 
-    public function UpdateDataAnggota($data, $id_anggota)
+    public function updatedataanggota($data, $id_anggota)
     {
         $query = "UPDATE anggota SET 
 						nama_anggota = :nama_anggota,
